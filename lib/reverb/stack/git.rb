@@ -1,4 +1,4 @@
-package :git do
+package :git, :provides => :scm do
   description 'Git Distributed Version Control'
   apt 'git'
 

@@ -18,7 +18,7 @@ package :add_deploy_ssh_keys do
   description "Add deployer public key to authorized ones"
   requires :create_deploy_user
 
-  local_keys_file = "#{File.dirname(__FILE__)}/../config/authorized_keys"
+  local_keys_file = "#{ENV['APP_ROOT']}/config/authorized_keys"
   keys = File.read(local_keys_file)
   authorized_keys_file = "/home/deploy/.ssh/authorized_keys"
 

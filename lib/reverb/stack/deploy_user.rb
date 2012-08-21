@@ -24,6 +24,8 @@ package :add_deploy_ssh_keys do
 
   push_text keys, authorized_keys_file, :sudo => true do
     pre :install, "mkdir -p /home/deploy/.ssh"
+    # make it idempotent
+    pre :install, "rm /home/deploy/.ssh/authorized_keys"
   end
 end
 

@@ -1,5 +1,6 @@
 package :passenger do
   description "Phusion Passenger with nginx"
+  requires :ruby
 
   gem "passenger" do
     post :install, "sudo passenger-install-nginx-module --auto --auto-download --prefix=/usr/local/nginx"

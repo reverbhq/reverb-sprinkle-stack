@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = "reverb-sprinkle-stack"
-  s.version       = "1.0.0"
+  s.version       = "1.0.1"
   s.platform      = Gem::Platform::RUBY
   s.homepage      = "http://github.com/reverbhq/reverb-sprinkle-stack"
   s.authors       = ["Greg Bell", "REVERB"]

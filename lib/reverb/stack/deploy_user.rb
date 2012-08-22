@@ -24,8 +24,8 @@ package :add_deploy_ssh_keys do
 
   push_text keys, authorized_keys_file, :sudo => true do
     pre :install, "mkdir -p /home/deploy/.ssh"
-    # make it idempotent
-    pre :install, "rm /home/deploy/.ssh/authorized_keys"
+    # make it overwrite so can update keys via sprinkle, NOTE there is no verify
+    pre :install, 'rm -f /home/deploy/.ssh/authorized_keys'
   end
 end
 
@@ -35,5 +35,6 @@ package :set_permissions do
 
   runner "chmod 0700 /home/deploy/.ssh"
   runner "chown -R deploy:deploy /home/deploy/.ssh"
-  runner "chmod 0700 /home/deploy/.ssh/authorized_keys"
+  runner "chmod 0600 /home/deploy/.ssh/authorized_keys"
 end
+
